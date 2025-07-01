@@ -1,0 +1,26 @@
+server:
+  port: 9002
+
+spring:
+  application:
+    name: content-service
+  datasource:
+    url: jdbc:mysql://192.168.60.204:13306/test1?useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: test1
+    password: ksf_12345
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.60.204:8848
+        namespace: 2975f69b-b4a8-44cd-bd1b-277c5485eaed
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 控制台打印 SQL
+  mapper-locations: classpath:/mapper/**/*.xml
+  type-aliases-package: com.lib.userservice.pojo
+
+logging:
+  level:
+    com.lib: debug
